@@ -828,12 +828,12 @@
                 });
                 
                 // Load orders
-                const ordersResponse = await fetch(`https://manageroffice.onrender.com/api/orders?${params}`);
+                const ordersResponse = await fetch(`https://officemanager.onrender.com/api/orders?${params}`);
                 const ordersResult = await ordersResponse.json();
                 ordersData = ordersResult.data || [];
                 
                 // Load projects
-                const projectsResponse = await fetch(`https://manageroffice.onrender.com/api/editing?${params}`);
+                const projectsResponse = await fetch(`https://officemanager.onrender.com/api/editing?${params}`);
                 const projectsResult = await projectsResponse.json();
                 projectsData = projectsResult.data || [];
                 

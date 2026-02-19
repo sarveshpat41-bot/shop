@@ -953,7 +953,7 @@
                     userId: userId
                 });
                 
-                const response = await fetch(`https://manageroffice.onrender.com/api/dashboard/alerts?${params}`);
+                const response = await fetch(`https://officemanager.onrender.com/api/dashboard/alerts?${params}`);
                 let alerts = [];
                 
                 if (response.ok) {
@@ -1080,7 +1080,7 @@
                         userId: userId
                     });
                     
-                    const response = await fetch(`https://manageroffice.onrender.com/api/dashboard/stats?${params}`);
+                    const response = await fetch(`https://officemanager.onrender.com/api/dashboard/stats?${params}`);
                     if (response.ok) {
                         const data = await response.json();
                         console.log('Stats received:', data.data);
@@ -1148,7 +1148,7 @@
                     userId: userId
                 });
                 
-                const response = await fetch(`https://manageroffice.onrender.com/api/dashboard/stats?${params}`);
+                const response = await fetch(`https://officemanager.onrender.com/api/dashboard/stats?${params}`);
                 let statsData = {
                     activeOrders: 0,
                     completedOrders: 0,
@@ -1331,7 +1331,7 @@
                 });
                 
                 // Fetch orders data
-                const ordersResponse = await fetch(`https://manageroffice.onrender.com/api/orders?${params}`);
+                const ordersResponse = await fetch(`https://officemanager.onrender.com/api/orders?${params}`);
                 let ordersData = [];
                 let totalPayment = 0;
                 let receivedPayment = 0;
@@ -1372,7 +1372,7 @@
                 document.getElementById('remainingPayments').textContent = `₹${remainingPayment.toLocaleString()}`;
                 
                 // Get worker payments from salary API
-                const salaryResponse = await fetch(`https://manageroffice.onrender.com/api/salary?shopName=${encodeURIComponent(userData.shopName)}&userRole=${userRole}&userId=${userId}`);
+                const salaryResponse = await fetch(`https://officemanager.onrender.com/api/salary?shopName=${encodeURIComponent(userData.shopName)}&userRole=${userRole}&userId=${userId}`);
                 let workerPayments = 0;
                 
                 if (salaryResponse.ok) {
@@ -1451,7 +1451,7 @@
                 });
                 
                 // Fetch editing projects data
-                const projectsResponse = await fetch(`https://manageroffice.onrender.com/api/editing?${params}`);
+                const projectsResponse = await fetch(`https://officemanager.onrender.com/api/editing?${params}`);
                 let projectsData = [];
                 let totalProjectValue = 0;
                 let totalCommissions = 0;
@@ -1491,7 +1491,7 @@
                 document.getElementById('remainingPayments').textContent = `₹${(totalProjectValue - totalCommissions).toLocaleString()}`;
                 
                 // Get editor payments from salary API
-                const salaryResponse = await fetch(`https://manageroffice.onrender.com/api/salary?shopName=${encodeURIComponent(userData.shopName)}&userRole=${userRole}&userId=${userId}`);
+                const salaryResponse = await fetch(`https://officemanager.onrender.com/api/salary?shopName=${encodeURIComponent(userData.shopName)}&userRole=${userRole}&userId=${userId}`);
                 let editorPayments = 0;
                 
                 if (salaryResponse.ok) {

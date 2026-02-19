@@ -759,7 +759,7 @@
                     userId: userId
                 });
                 
-                const response = await fetch(`https://manageroffice.onrender.com/api/users?${params}`);
+                const response = await fetch(`https://officemanagere.onrender.com/api/users?${params}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch workers');
                 }
@@ -834,7 +834,7 @@
                     userRole: userData.role.toLowerCase()
                 });
                 
-                const response = await fetch(`https://manageroffice.onrender.com/api/users/${worker._id}/statistics?${params}`);
+                const response = await fetch(`https://officemanagere.onrender.com/api/users/${worker._id}/statistics?${params}`);
                 if (response.ok) {
                     const data = await response.json();
                     statistics = data.data;

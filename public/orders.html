@@ -734,7 +734,7 @@
                     userId: userData._id || userData.id
                 });
                 
-                const response = await fetch(`https://manageroffice.onrender.com/api/clients?${params}`);
+                const response = await fetch(`https://officemanager.onrender.com/api/clients?${params}`);
                 console.log('Clients API response status:', response.status);
                 
                 if (response.ok) {
@@ -781,7 +781,7 @@
                     role: 'worker'
                 });
                 
-                const response = await fetch(`https://manageroffice.onrender.com/api/users?${params}`);
+                const response = await fetch(`https://officemanager.onrender.com/api/users?${params}`);
                 if (response.ok) {
                     const data = await response.json();
                     availableWorkers = data.data.filter(worker => worker.role.includes('worker'));
@@ -800,7 +800,7 @@
                     role: 'transporter'
                 });
                 
-                const response = await fetch(`https://manageroffice.onrender.com/api/users?${params}`);
+                const response = await fetch(`https://officemanager.onrender.com/api/users?${params}`);
                 if (response.ok) {
                     const data = await response.json();
                     availableTransporters = data.data.filter(transporter => transporter.role.includes('transporter'));
@@ -1242,7 +1242,7 @@
                 console.log('User data:', userData);
                 console.log('Using userId:', userId);
                 
-                const response = await fetch(`https://manageroffice.onrender.com/api/debug/assignments/${userId}?shopName=${encodeURIComponent(userData.shopName)}`);
+                const response = await fetch(`https://officemanager.onrender.com/api/debug/assignments/${userId}?shopName=${encodeURIComponent(userData.shopName)}`);
                 const debugData = await response.json();
                 
                 console.log('Debug response:', debugData);
@@ -1302,7 +1302,7 @@ Check console for detailed information.
                 // Debug: Test user lookup
                 console.log('Testing user lookup...');
                 try {
-                    const testResponse = await fetch(`https://manageroffice.onrender.com/api/test/user/${userId}`);
+                    const testResponse = await fetch(`https://officemanager.onrender.com/api/test/user/${userId}`);
                     if (testResponse.ok) {
                         const testData = await testResponse.json();
                         console.log('User lookup test result:', testData);
@@ -1311,7 +1311,7 @@ Check console for detailed information.
                     console.log('User lookup test failed:', testError);
                 }
                 
-                const response = await fetch(`https://manageroffice.onrender.com/api/orders?${params}`);
+                const response = await fetch(`https://officemanager.onrender.com/api/orders?${params}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch orders');
                 }
@@ -1380,7 +1380,7 @@ Check console for detailed information.
                     const userData = JSON.parse(localStorage.getItem('user'));
                     const userId = userData._id || userData.id;
                     
-                    const response = await fetch(`https://manageroffice.onrender.com/api/salary/my-salary?employeeId=${userId}&shopName=${userData.shopName}&userRole=${userData.role}`);
+                    const response = await fetch(`https://officemanager.onrender.com/api/salary/my-salary?employeeId=${userId}&shopName=${userData.shopName}&userRole=${userData.role}`);
                     if (response.ok) {
                         const salaryData = await response.json();
                         const data = salaryData.data;
@@ -1631,7 +1631,7 @@ Check console for detailed information.
                 
                 console.log('Creating new client:', newClient);
                 
-                const response = await fetch('https://manageroffice.onrender.com/api/clients', {
+                const response = await fetch('https://officemanager.onrender.com/api/clients', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -1678,7 +1678,7 @@ Check console for detailed information.
             }
 
             try {
-                const response = await fetch(`https://manageroffice.onrender.com/api/orders/${orderId}`, {
+                const response = await fetch(`https://officemanager.onrender.com/api/orders/${orderId}`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json'
@@ -1839,7 +1839,7 @@ Check console for detailed information.
                     console.log('Invalid user ID, attempting to get/create user...');
                     
                     // Try to find or create a user
-                    const userResponse = await fetch('https://manageroffice.onrender.com/api/users', {
+                    const userResponse = await fetch('https://officemanager.onrender.com/api/users', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
@@ -1898,7 +1898,7 @@ Check console for detailed information.
                 
                 console.log('Sending order data:', newOrder);
                 
-                const response = await fetch('https://manageroffice.onrender.com/api/orders', {
+                const response = await fetch('https://officemanager.onrender.com/api/orders', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
